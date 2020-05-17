@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lz.itoa.dao.CourseMapper">
+  <resultMap id="BaseResultMap" type="com.lz.itoa.entity.Course">
+    <id column="name_course" jdbcType="VARCHAR" property="nameCourse" />
+    <result column="name_school" jdbcType="VARCHAR" property="nameSchool" />
+    <result column="name_teacher" jdbcType="VARCHAR" property="nameTeacher" />
+    <result column="price_course" jdbcType="VARCHAR" property="priceCourse" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from course
+    where name_course = #{nameCourse,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lz.itoa.entity.Course">
+    insert into course (name_course, name_school, name_teacher, 
+      price_course)
+    values (#{nameCourse,jdbcType=VARCHAR}, #{nameSchool,jdbcType=VARCHAR}, #{nameTeacher,jdbcType=VARCHAR}, 
+      #{priceCourse,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lz.itoa.entity.Course">
+    update course
+    set name_school = #{nameSchool,jdbcType=VARCHAR},
+      name_teacher = #{nameTeacher,jdbcType=VARCHAR},
+      price_course = #{priceCourse,jdbcType=VARCHAR}
+    where name_course = #{nameCourse,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select name_course, name_school, name_teacher, price_course
+    from course
+    where name_course = #{nameCourse,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select name_course, name_school, name_teacher, price_course
+    from course
+  </select>
+  <resultMap id="BaseResultMap" type="com.lz.itoa.entity.Course">
+    <id column="name_course" jdbcType="VARCHAR" property="nameCourse" />
+    <result column="name_school" jdbcType="VARCHAR" property="nameSchool" />
+    <result column="name_teacher" jdbcType="VARCHAR" property="nameTeacher" />
+    <result column="price_course" jdbcType="VARCHAR" property="priceCourse" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from course
+    where name_course = #{nameCourse,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lz.itoa.entity.Course">
+    insert into course (name_course, name_school, name_teacher, 
+      price_course)
+    values (#{nameCourse,jdbcType=VARCHAR}, #{nameSchool,jdbcType=VARCHAR}, #{nameTeacher,jdbcType=VARCHAR}, 
+      #{priceCourse,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lz.itoa.entity.Course">
+    update course
+    set name_school = #{nameSchool,jdbcType=VARCHAR},
+      name_teacher = #{nameTeacher,jdbcType=VARCHAR},
+      price_course = #{priceCourse,jdbcType=VARCHAR}
+    where name_course = #{nameCourse,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select name_course, name_school, name_teacher, price_course
+    from course
+    where name_course = #{nameCourse,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select name_course, name_school, name_teacher, price_course
+    from course
+  </select>
+</mapper>
