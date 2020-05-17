@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lz.itoa.dao.TCourseMapper">
+  <resultMap id="BaseResultMap" type="com.lz.itoa.entity.TCourse">
+    <id column="name_course" jdbcType="VARCHAR" property="nameCourse" />
+    <result column="name_school_a" jdbcType="VARCHAR" property="nameSchoolA" />
+    <result column="name_teacher" jdbcType="VARCHAR" property="nameTeacher" />
+    <result column="price_course" jdbcType="VARCHAR" property="priceCourse" />
+    <result column="test_colum" jdbcType="VARCHAR" property="testColum" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from course
+    where name_course = #{nameCourse,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lz.itoa.entity.TCourse">
+    insert into course (name_course, name_school_a, name_teacher, 
+      price_course, test_colum)
+    values (#{nameCourse,jdbcType=VARCHAR}, #{nameSchoolA,jdbcType=VARCHAR}, #{nameTeacher,jdbcType=VARCHAR}, 
+      #{priceCourse,jdbcType=VARCHAR}, #{testColum,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lz.itoa.entity.TCourse">
+    update course
+    set name_school_a = #{nameSchoolA,jdbcType=VARCHAR},
+      name_teacher = #{nameTeacher,jdbcType=VARCHAR},
+      price_course = #{priceCourse,jdbcType=VARCHAR},
+      test_colum = #{testColum,jdbcType=VARCHAR}
+    where name_course = #{nameCourse,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select name_course, name_school_a, name_teacher, price_course, test_colum
+    from course
+    where name_course = #{nameCourse,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select name_course, name_school_a, name_teacher, price_course, test_colum
+    from course
+  </select>
+</mapper>
