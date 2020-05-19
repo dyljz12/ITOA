@@ -1,7 +1,5 @@
 package com.lz.itoa.controller;
 
-import com.lz.itoa.dao.TCourseMapper;
-import com.lz.itoa.entity.TCourse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
